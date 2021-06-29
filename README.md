@@ -19,9 +19,9 @@ For this project, I uploaded two files called TimerClient.java and TimerClient2.
 
 > Format: [duration in seconds],optional:[message]
 
-Example 1: 15,Mamamia
-Example 2: 30,Olalia
+Example 1: 15,Mamamia <br />
+Example 2: 30,Olalia 
 
-Alternatively, the client can input the following as the message part will default to "None":
-Example 3: 45
+Alternatively, the client can input the following as the message part will default to "None": 
+Example 3: 45 <br />
 Example 4: 75
