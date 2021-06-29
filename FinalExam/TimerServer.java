@@ -237,7 +237,7 @@ public class TimerServer {
 
         public static void main( String[] args )
         {
-            System.out.println( "Server has been started on port " + 7500 + ".");
+            System.out.println("Server has been started on port " + 7500 + ".");
 
             SocketServer server = new SocketServer(7500);
             server.startServer();
