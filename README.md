@@ -54,4 +54,15 @@ For visual aid, every timer will have their own Thread ID, which will be sent in
 We implement various input validations and try-catch brackets to capture the errors and print them in the console. Shutting down the client without first closing the connection with the server is one of the example cases that will raise an exception, but it is caught and therefore will not stop the program.
 
 
+# Installation Guide
 
+To install the program, it is only necessary to download the FinalExam folder as the Java classes have their package set to FinalExam. Before running the code, ensure that the classpath is correct and that it points to the main() methods. Boot the program by first running the TimerServer.java then the client java files. Otherwise, running the client java files will result in errors saying that connection is refused. If successful, the server will say "Listening for Connection...", and whenever the client connects, it will greet the client with a welcome message.
+
+
+
+# Contributors
+
+Coding: Matthew Emmeric Setiawan - 2301891033
+Testing: Matthew Emmeric Setiawan - 2301891033
+Designing: Matthew Emmeric Setiawan - 2301891033
+Writer: Matthew Emmeric Setiawan - 2301891033
