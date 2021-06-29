@@ -77,7 +77,7 @@ public class TimerServer {
         // Counter refers to the number of concurrent connections.
         private static int counter = 0;
 
-        // UniqueConnectionNumber serves as the ID of the current connection thread. Unlike counter, it doesn't decrease when a connection is closed.
+        // connectionId serves as the ID of the current connection thread. Unlike counter, it doesn't decrease when a connection is closed.
         private static int connectionIdCounter = 0;
         private int connectionId;
 
