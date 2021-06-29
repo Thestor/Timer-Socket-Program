@@ -1,7 +1,8 @@
 # Timer-Socket-Program
 
-Timer Socket Program is a Java Timer program that utilizes socket programming to allow communication between the server and the client. Every client can request a timer with a personalized message to the server and is entitled to one timer at a time to prevent spamming.
+Timer Socket Program is a Java Timer program that utilizes socket programming to allow communication between the server and the client. Every client can request a timer with a personalized message to the server and is entitled to one timer at a time to prevent spamming. <br />
 
+Libraries used: java.net and java.io.
 
 
 ## General Information
@@ -22,6 +23,33 @@ For this project, I uploaded two files called TimerClient.java and TimerClient2.
 Example 1: 15,Mamamia <br />
 Example 2: 30,Olalia 
 
-Alternatively, the client can input the following as the message part will default to "None": 
+Alternatively, the client can input the following as the message part will default to "None": <br />
 Example 3: 45 <br />
 Example 4: 75
+
+
+
+## Server
+
+For this project, the server half is quite complicated. 
+
+### SocketServer
+
+First of all, there is a *SocketServer* class, which will hold our *SocketServer* object. By supplying a port number to the constructor, we can create a *SocketServer* over any port, but for demonstration, I used Port 7500. After that, the server may go online and await connections from the client. When a client attempts to connect, the *SocketServer* class will route it to a new thread of *RequestHandler* for it to communicate with the client. Using threads allow us to establish connections with more than one client at a time. We have an unused method *stopServer()*, which will stop the server, but currently it is meaningless for the demonstration.
+
+### RequestHandler
+The class *RequestHandler* is mostly encapsulated to keep the server's secrets safe. The class has multiple variables for communication such as *DataInputStream* and *DataOutputStream* as well as variables such as *connectionId* and *counter*. *counter*, as a static variable, will ultimately count how many concurrent connections there are at a time, whereas *connectionId* is a non-static variable that is attached to every instance of *RequestHandler*, starting from 1 to the maximum integer.
+
+When a connection is established, the connection will have a unique connectionId. The handler then welcomes the client and asks them for their timer preferences (refer to Client). After retrieving the parameters, the server splits the input string and passes the arguments plus the RequestHandler object to the Timer class, which extends the Thread class. In other words, we are performing another multithreading with the Timer class. Then, this thread joins the Timer thread and waits until the countdown is finished before proceeding to ask the client for another timer. The client can terminate the connection by typing "EXIT" during the inquiry phase.
+
+### Timer
+The class Timer accepts two types of constructors, but only one is used. One of them handles when a RequestHandler object gets passed as the second argument, whereas the other handles only integer input (duration). By using these values, the Timer class goes to sleep for duration * 1000 milliseconds. We use the sleep() method instead of while() because while(), despite being more accurate, consumes more processor resources. At the end of the sleep, the class prints a message in the server console and notifies the client via the handler's sendMessage method alongside the client's message. This also implies that the thread has closed.
+
+For visual aid, every timer will have their own Thread ID, which will be sent in the console, so we can differ one Timer thread from another:
+> New timer thread created for 16 seconds. Requested by client 5 with the message = "I love everybody!". <br />
+> Starting timer thread of ID 31 for 16 seconds. Requested by client 5 with the message = "I love everybody!". <br />
+
+
+
+
+
