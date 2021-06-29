@@ -45,11 +45,13 @@ When a connection is established, the connection will have a unique connectionId
 ### Timer
 The class Timer accepts two types of constructors, but only one is used. One of them handles when a RequestHandler object gets passed as the second argument, whereas the other handles only integer input (duration). By using these values, the Timer class goes to sleep for duration * 1000 milliseconds. We use the sleep() method instead of while() because while(), despite being more accurate, consumes more processor resources. At the end of the sleep, the class prints a message in the server console and notifies the client via the handler's sendMessage method alongside the client's message. This also implies that the thread has closed.
 
-For visual aid, every timer will have their own Thread ID, which will be sent in the console, so we can differ one Timer thread from another:
+For visual aid, every timer will have their own Thread ID, which will be sent in the console, so we can differentiate one Timer thread from another:
 > New timer thread created for 16 seconds. Requested by client 5 with the message = "I love everybody!". <br />
 > Starting timer thread of ID 31 for 16 seconds. Requested by client 5 with the message = "I love everybody!". <br />
 
+## Others
 
+We implement various input validations and try-catch brackets to capture the errors and print them in the console. Shutting down the client without first closing the connection with the server is one of the example cases that will raise an exception, but it is caught and therefore will not stop the program.
 
 
 
