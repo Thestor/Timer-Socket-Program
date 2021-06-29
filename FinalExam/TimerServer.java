@@ -126,7 +126,7 @@ public class TimerServer {
                     // Reset message.
                     this.userMessage = "None";
 
-                    sendMessage("Type EXIT to close connection. Input how long you want the timer to be (format = ([duration],optional: [message])): ");
+                    sendMessage("Type EXIT to close connection. Input how long you want the timer to be (format = ([duration in seconds],optional: [message])): ");
 
                     toReceive = din.readUTF();
                     try{
