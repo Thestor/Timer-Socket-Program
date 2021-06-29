@@ -15,4 +15,12 @@ For example:
 
 ## Client
 
-T
+For this project, I uploaded two files called TimerClient.java and TimerClient2.java, which are exactly the same. I duplicated the file to check whether the multithreading works. The client itself is just a simple client file with nothing spectacular. It listens to Port 7500 and replies to its messages. When the server sends a message ending with a ": ", we assume the server is asking for an input. Otherwise, the client will only listen. As for how the client can set up the timer, there are two distinct ways:
+
+> Format: [duration in seconds],optional:[message]
+> Example 1: 15,Mamamia
+> Example 2: 30,Olalia
+
+Alternatively, the client can input the following as the message part will default to "None":
+> Example 3: 45
+> Example 4: 75
