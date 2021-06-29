@@ -149,6 +149,9 @@ public class TimerServer {
 
                         Thread newTimer = new TimerServer.Timer(howLong, this);
                         newTimer.start();
+
+                        // To avoid timer spamming, let's wait for the Timer thread to finish before allowing the client to create any more timers.
+                        // By doing so, we can also notify them when the Timer thread concludes using sendMessage method.
                         newTimer.join();
                     }
                     catch(NumberFormatException | ArrayIndexOutOfBoundsException e){
