@@ -61,8 +61,3 @@ To install the program, it is only necessary to download the FinalExam folder as
 
 
 # Contributors
-
-Coding: Matthew Emmeric Setiawan - 2301891033 <br />
-Testing: Matthew Emmeric Setiawan - 2301891033 <br />
-Designing: Matthew Emmeric Setiawan - 2301891033 <br />
-Writing: Matthew Emmeric Setiawan - 2301891033
